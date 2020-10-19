@@ -1,23 +1,40 @@
-# python3
+# Convert Array Into Heap
+# Author: jerrybelmonte
+# Input: First line contains an integer n.
+# Second line contains n integers separated by a space.
+# Output: First line contains the total number of swaps.
+# The following lines contain the swap operations on the array. 
 
 
-def build_heap_naive(data):
+def build_heap(data):
     """Build a heap from ``data`` inplace.
-
     Returns a sequence of swaps performed by the algorithm.
     """
-    # The following naive implementation just sorts the given sequence
-    # using selection sort algorithm and saves the resulting sequence
-    # of swaps. This turns the given array into a heap, but in the worst
-    # case gives a quadratic number of swaps.
-    #
-    # TODO: replace by a more efficient implementation
     swaps = []
-    for i in range(len(data)):
-        for j in range(i + 1, len(data)):
-            if data[i] > data[j]:
-                swaps.append((i, j))
-                data[i], data[j] = data[j], data[i]
+    n = len(data)
+
+    parent = lambda i: (i - 1) // 2
+    left_child = lambda i: 2 * i + 1
+    right_child = lambda i: 2 * i + 2
+
+    min_index = lambda i, j: j if j < n and data[j] < data[i] else i
+
+    def heapify(i):
+        ndx = i
+        left = left_child(i)
+        right = right_child(i)
+
+        ndx = min_index(ndx, left)
+        ndx = min_index(ndx, right)
+
+        if i != ndx:
+            swaps.append((i,ndx))
+            data[i], data[ndx] = data[ndx], data[i]
+            heapify(ndx)
+
+    for i in range((n//2), -1, -1):
+        heapify(i)
+
     return swaps
 
 

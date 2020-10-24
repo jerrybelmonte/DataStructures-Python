@@ -8,6 +8,7 @@ Data structures and algorithm implementations in Python.
   - [Quicksort Unsorted List](#quicksort-unsorted-list)
   - [Linked List](#linked-list)
 * [Stack ADT](#stack-adt)
+  - [Check Brackets In Text](#check-brackets-in-text)
 * [Queue ADT](#queue-adt)
   - [Convert Array Into Heap](#convert-array-into-heap)
 * [Technologies](#technologies)
@@ -30,6 +31,9 @@ Practice implementing various data structures to gain experience designing data 
 
 ## Stack ADT
 [Stack](stack.py "stack.py")
+
+### Check Brackets In Text
+[Check Brackets](check_brackets.py "check_brackets.py")
 
 ## Queue ADT
 [Queue](queue.py "queue.py")

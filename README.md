@@ -9,6 +9,7 @@ Data structures and algorithm implementations in Python.
   - [Linked List](#linked-list)
 * [Stack ADT](#stack-adt)
   - [Check Brackets In Text](#check-brackets-in-text)
+  - [Stack With Max](#stack-with-max)
 * [Queue ADT](#queue-adt)
   - [Convert Array Into Heap](#convert-array-into-heap)
 * [Technologies](#technologies)
@@ -34,6 +35,9 @@ Practice implementing various data structures to gain experience designing data 
 
 ### Check Brackets In Text
 [Check Brackets](check_brackets.py "check_brackets.py")
+
+### Stack With Max
+[Max Stack](max_stack.py "max_stack.py")
 
 ## Queue ADT
 [Queue](queue.py "queue.py")

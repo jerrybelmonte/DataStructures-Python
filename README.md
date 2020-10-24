@@ -9,8 +9,9 @@ Data structures and algorithm implementations in Python.
   - [Linked List](#linked-list)
 * [Stack ADT](#stack-adt)
   - [Check Brackets In Text](#check-brackets-in-text)
-  - [Stack With Max](#stack-with-max)
+  - [Stack With Maximum](#stack-with-maximum)
 * [Queue ADT](#queue-adt)
+  - [Maximum In Sliding Window](#maximum-in-sliding-window)
   - [Convert Array Into Heap](#convert-array-into-heap)
 * [Technologies](#technologies)
 * [License](#license)
@@ -36,11 +37,14 @@ Practice implementing various data structures to gain experience designing data 
 ### Check Brackets In Text
 [Check Brackets](check_brackets.py "check_brackets.py")
 
-### Stack With Max
+### Stack With Maximum
 [Max Stack](max_stack.py "max_stack.py")
 
 ## Queue ADT
 [Queue](queue.py "queue.py")
+
+### Maximum In Sliding Window
+[Max Sliding Window](max_sliding_window.py "max_sliding_window.py")
 
 ### Convert Array Into Heap
 The first step of the HeapSort algorithm is to create a heap from the array you want to sort. Implement the first step 

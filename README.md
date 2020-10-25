@@ -36,15 +36,33 @@ Practice implementing various data structures to gain experience designing data 
 [Stack](stack.py "stack.py")
 
 ### Check Brackets In Text
+Implement a feature for a text editor to find errors in the usage of brackets in the code.  
+**Input:** Input contains one string 𝑆 which consists of big and small latin letters, digits, punctuation marks and 
+brackets from the set []{}() _(The length of 𝑆 is at least 1 and at most 10E5)_.  
+**Output:** If the code in 𝑆 uses brackets correctly, output “Success" (without the quotes). Otherwise, output the 
+1-based index of the first unmatched closing bracket, and if there are no unmatched closing brackets, output the 
+1-based index of the first unmatched opening bracket.  
 [Check Brackets](check_brackets.py "check_brackets.py")
 
 ### Stack With Maximum
+Stack is an abstract data type supporting the operations Push() and Pop(). It is not difficult to implement it in a way 
+that both these operations work in constant time. In this problem, you goal will be to implement a stack that also 
+supports finding the maximum value and to ensure that all operations still work in constant time.  
+**Input:** The first line of the input contains the number 𝑞 of queries. Each of the following 𝑞 lines specifies a query 
+of one of the following formats: push v, pop, or max _(1 ≤ 𝑞 ≤ 40,0000; 0 ≤ 𝑣 ≤ 10E5)_.  
+**Output:** For each max query, output (on a separate line) the maximum value of the stack.  
 [Max Stack](max_stack.py "max_stack.py")
 
 ## Queue ADT
 [Queue](queue.py "queue.py")
 
 ### Maximum In Sliding Window
+Given a sequence 𝑎1,...,𝑎𝑛 of integers and an integer 𝑚 ≤ 𝑛, find the maximum among {𝑎𝑖,...,𝑎𝑖+𝑚−1} for every 
+1 ≤ 𝑖 ≤ 𝑛 − 𝑚 + 1. A naive 𝑂(𝑛𝑚) algorithm for solving this problem scans each window separately. Your goal is to 
+design an 𝑂(𝑛) algorithm.  
+**Input:** The first line contains an integer 𝑛, the second line contains 𝑛 integers 𝑎1,...,𝑎𝑛 separated by spaces, 
+the third line contains an integer 𝑚 _(1 ≤ 𝑛 ≤ 10E5,1 ≤ 𝑚 ≤ 𝑛,0 ≤ 𝑎𝑖 ≤ 10E5 for all 1 ≤ 𝑖 ≤ 𝑛)_.  
+**Output:** Output max{𝑎𝑖,...,𝑎𝑖 + 𝑚 − 1} for every 1 ≤ 𝑖 ≤ 𝑛 − 𝑚 + 1.  
 [Max Sliding Window](max_sliding_window.py "max_sliding_window.py")
 
 ### Convert Array Into Heap

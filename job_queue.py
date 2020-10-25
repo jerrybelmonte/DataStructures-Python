@@ -1,4 +1,5 @@
 # Parallel Processing
+# Author: jerrybelmonte
 from collections import namedtuple
 from heapq import heapify, heappop, heappush
 

@@ -1,6 +1,6 @@
-# python3
-
-
+# Merging Tables
+# Simulates a sequence of merge operations with tables in a database.
+# Author: jerrybelmonte
 class Database:
     def __init__(self, row_counts):
         self.row_counts = row_counts
@@ -9,21 +9,35 @@ class Database:
         self.ranks = [1] * n_tables
         self.parents = list(range(n_tables))
 
-    def merge(self, src, dst):
+    def merge(self, dst, src):
         src_parent = self.get_parent(src)
         dst_parent = self.get_parent(dst)
 
         if src_parent == dst_parent:
             return False
 
-        # merge two components
-        # use union by rank heuristic
-        # update max_row_count with the new maximum table size
+        self.parents[src_parent] = dst_parent
+        self.row_counts[dst_parent] += self.row_counts[src_parent]
+        self.row_counts[src_parent] = 0
+
+        if self.row_counts[dst_parent] >= self.max_row_count:
+            self.max_row_count = self.row_counts[dst_parent]
+        if self.ranks[src_parent] == self.ranks[dst_parent]:
+            self.ranks[dst_parent] += 1
+
         return True
 
     def get_parent(self, table):
-        # find parent and compress path
-        return self.parents[table]
+        parent_path = []
+        while table != self.parents[table]:
+            parent_path.append(table)
+            table = self.parents[table]
+
+        if parent_path:  # path compression
+            for node in parent_path:
+                self.parents[node] = table
+
+        return table
 
 
 def main():

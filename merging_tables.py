@@ -16,14 +16,21 @@ class Database:
         if src_parent == dst_parent:
             return False
 
-        self.parents[src_parent] = dst_parent
-        self.row_counts[dst_parent] += self.row_counts[src_parent]
-        self.row_counts[src_parent] = 0
-
-        if self.row_counts[dst_parent] >= self.max_row_count:
-            self.max_row_count = self.row_counts[dst_parent]
-        if self.ranks[src_parent] == self.ranks[dst_parent]:
-            self.ranks[dst_parent] += 1
+        # Union by rank heuristic
+        if self.ranks[src_parent] > self.ranks[dst_parent]:
+            self.parents[dst_parent] = src_parent
+            self.row_counts[src_parent] += self.row_counts[dst_parent]
+            self.row_counts[dst_parent] = 0
+            if self.row_counts[src_parent] >= self.max_row_count:
+                self.max_row_count = self.row_counts[src_parent]
+        else:
+            self.parents[src_parent] = dst_parent
+            self.row_counts[dst_parent] += self.row_counts[src_parent]
+            self.row_counts[src_parent] = 0
+            if self.row_counts[dst_parent] >= self.max_row_count:
+                self.max_row_count = self.row_counts[dst_parent]
+            if self.ranks[src_parent] == self.ranks[dst_parent]:
+                self.ranks[dst_parent] += 1
 
         return True
 

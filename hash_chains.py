@@ -1,7 +1,8 @@
-# python3
+# Hash table using chaining scheme implementation.
+# Author: jerrybelmonte
+
 
 class Query:
-
     def __init__(self, query):
         self.type = query[0]
         if self.type == 'check':
@@ -14,52 +15,81 @@ class QueryProcessor:
     _multiplier = 263
     _prime = 1000000007
 
-    def __init__(self, bucket_count):
-        self.bucket_count = bucket_count
-        # store all strings in one list
-        self.elems = []
+    def __init__(self, row_count: int):
+        self.row_count = row_count
+        self.rows = dict()
+        for num in range(row_count):
+            self.rows[num] = list()
 
-    def _hash_func(self, s):
+    def _hash_func(self, s: str):
         ans = 0
         for c in reversed(s):
             ans = (ans * self._multiplier + ord(c)) % self._prime
-        return ans % self.bucket_count
+        return ans % self.row_count
 
-    def write_search_result(self, was_found):
-        print('yes' if was_found else 'no')
+    def add(self, s: str):
+        """Inserts a string into the hash table if and only if no such string
+        already exists in the hash table."""
+        index = self._hash_func(s)
+        if s not in self.rows[index]:
+            self.rows[index].append(s)
 
-    def write_chain(self, chain):
-        print(' '.join(chain))
+    def remove(self, s: str):
+        """Removes a string from the hash table if and only if the string
+        already exists within the hash table."""
+        index = self._hash_func(s)
+        if s in self.rows[index]:
+            ndx = self.rows[index].index(s)
+            del self.rows[index][ndx]
 
-    def read_query(self):
-        return Query(input().split())
+    def find(self, s: str):
+        """Returns True if the string exists within the hash table, otherwise
+        returns false."""
+        index = self._hash_func(s)
+        return s in self.rows[index]
 
-    def process_query(self, query):
-        if query.type == "check":
-            # use reverse order, because we append strings to the end
-            self.write_chain(cur for cur in reversed(self.elems)
-                             if self._hash_func(cur) == query.ind)
+    def check(self, index: int):
+        """Checks and returns the list at the given row index if the list is
+        not empty, otherwise returns an empty string."""
+        if self.rows[index]:
+            return self.rows[index][::-1]
+        return ""
+
+
+def read_query():
+    return Query(input().split())
+
+
+def write_search_result(was_found):
+    print('yes' if was_found else 'no')
+
+
+def write_chain(chain):
+    print(' '.join(chain))
+
+
+def process_query(q_processor, query):
+    if query.type == 'add':
+        q_processor.add(query.s)
+    elif query.type == 'del':
+        q_processor.remove(query.s)
+    elif query.type == 'find':
+        write_search_result(q_processor.find(query.s))
+    elif query.type == "check":
+        chain = q_processor.check(query.ind)
+        if chain:
+            write_chain(chain)
         else:
-            try:
-                ind = self.elems.index(query.s)
-            except ValueError:
-                ind = -1
-            if query.type == 'find':
-                self.write_search_result(ind != -1)
-            elif query.type == 'add':
-                if ind == -1:
-                    self.elems.append(query.s)
-            else:
-                if ind != -1:
-                    self.elems.pop(ind)
+            print(chain)
 
-    def process_queries(self):
-        n = int(input())
-        for i in range(n):
-            self.process_query(self.read_query())
+
+def process_queries(q_processor):
+    n = int(input())
+    for i in range(n):
+        process_query(q_processor, read_query())
 
 
 if __name__ == '__main__':
     bucket_count = int(input())
     proc = QueryProcessor(bucket_count)
-    proc.process_queries()
+    process_queries(proc)

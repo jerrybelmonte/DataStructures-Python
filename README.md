@@ -18,6 +18,7 @@ Data structures and algorithm implementations in Python.
 * [Hashing](#hashing)
   - [Phone Book](#phone-book)
   - [Hashing With Chains](#hashing-with-chains)
+  - [Find Substring Pattern](#find-substring-pattern)
 * [Technologies](#technologies)
 * [License](#license)
 
@@ -153,6 +154,16 @@ has length at most 15.
 **Output:** Print the result of each of the **`find`** and **`check`** queries, one result per line, in the same order 
 as these queries are given in the input.  
 **Code:** [Hash Chains](hash_chains.py "hash_chains.py")
+
+### Find Substring Pattern
+Implement the Rabin–Karp’s algorithm for searching the given pattern in the given text.  
+
+**Input:** There are two strings in the input: the pattern 𝑃 and the text 𝑇.  
+**Constraints:** _1 ≤ |𝑃| ≤ |𝑇| ≤ 5 · 10^5_. The total length of all occurrences of 𝑃 in 𝑇 doesn't exceed 10^8. The 
+pattern and the text contain only latin letters.  
+**Output:** Print all the positions of the occurrences of 𝑃 in 𝑇 in the ascending order. Use 0-based indexing of 
+positions in the the text 𝑇.  
+**Code:** [Hash Substring](hash_substring.py "hash_substring.py")
 
 
 ## Technologies

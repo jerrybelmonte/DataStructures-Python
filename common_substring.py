@@ -40,7 +40,7 @@ def precompute_hashes(string, length, prime1, rand1, prime2, rand2):
 	n = len(string)
 	m = n - length
 	substr = string[m:n]
-	hashes = [None]*(m + 1)
+	hashes = [(0, 0)]*(m + 1)
 	hashes[m] = poly_hash(substr, prime1, rand1, prime2, rand2)
 	num1, num2 = 1, 1
 	for _ in range(1, length + 1):

@@ -19,6 +19,8 @@ Data structures and algorithm implementations in Python.
   - [Phone Book](#phone-book)
   - [Hashing With Chains](#hashing-with-chains)
   - [Find Substring Pattern](#find-substring-pattern)
+  - [Substring Equality](#substring-equality)
+  - [Longest Common Substring](#longest-common-substring)
 * [Technologies](#technologies)
 * [License](#license)
 
@@ -91,7 +93,7 @@ and convert a given array of integers into a min-heap. Convert the array into a 
 **Constraints:** _1 ≤ 𝑛 ≤ 100,000; 0 ≤ i,j ≤ 𝑛-1; 0 ≤ 𝑎0,...,𝑎𝑛-1 ≤ 10^9_.  
 **Output:** First line should contain a single integer 𝑚 (the total number of swaps) and 𝑚 **must satisfy conditions** 
 _0 ≤ 𝑚 ≤ 4𝑛_. The next 𝑚 lines should contain the swap operations used to convert the array 𝑎 into a heap.  
-**Code:** [Heapify](build_heap.py "build_heap.py")
+**Code:** [Build Heap](build_heap.py "build_heap.py")
 
 ### Parallel Processing
 You have a program which is parallelized and uses 𝑛 independent threads to process the given list of 𝑚 jobs. Threads 
@@ -108,7 +110,7 @@ which threads take jobs. Threads are indexed starting from 0.
 **Output:** Output exactly 𝑚 lines. 𝑖-th line (0-based index is used) should contain two space separated integers, 
 the 0-based index of the thread which will process the 𝑖-th job and the time in seconds when it will start processing 
 that job.  
-**Code:** [Priority Queue](job_queue.py "job_queue.py")
+**Code:** [Job Queue](job_queue.py "job_queue.py")
 
 
 ## Hashing
@@ -162,9 +164,32 @@ Implement the Rabin–Karp’s algorithm for searching the given pattern in the 
 **Constraints:** _1 ≤ |𝑃| ≤ |𝑇| ≤ 5 · 10^5_. The total length of all occurrences of 𝑃 in 𝑇 doesn't exceed 10^8. The 
 pattern and the text contain only latin letters.  
 **Output:** Print all the positions of the occurrences of 𝑃 in 𝑇 in the ascending order. Use 0-based indexing of 
-positions in the the text 𝑇.  
+positions in the text 𝑇.  
 **Code:** [Hash Substring](hash_substring.py "hash_substring.py")
 
+### Substring Equality
+Use hashing to design an algorithm that is able to preprocess a given string 𝑠 to answer any query of the form “are 
+these two substrings of 𝑠 equal?” efficiently.  
+
+**Input:** The first line contains a string 𝑠 consisting of small Latin letters. The second line contains the number of 
+queries 𝑞. Each of the next 𝑞 lines specifies a query by three integers 𝑎, 𝑏, and 𝑙.  
+**Constraints:** 1 ≤ |𝑠| ≤ 500000. 1 ≤ 𝑞 ≤ 100000. 0 ≤ 𝑎, 𝑏 ≤ |𝑠| − 𝑙.  
+**Output:** For each query, output “Yes” if s𝑎s𝑎+1...s𝑎+𝑙−1 = s𝑏s𝑏+1...s𝑏+𝑙−1 are equal, and “No” otherwise.  
+**Code:** [Substring Equality](substring_equality.py "substring_equality.py")
+
+### Longest Common Substring
+In the longest common substring problem one is given two strings 𝑠 and 𝑡 and the goal is to find a string 𝑤 of maximal 
+length that is a substring of both 𝑠 and 𝑡. This is a natural measure of similarity between two strings. The problem has 
+applications in text comparison and compression as well as in bioinformatics. The problem can be seen as a special case 
+of the edit distance problem (where only insertions and deletions are allowed). Hence, it can be solved in time 
+𝑂(|𝑠| · |𝑡|) using dynamic programming. In this problem, your goal is to use hashing to solve it in almost linear time.  
+
+**Input:** Every line of the input contains two strings 𝑠 and 𝑡 consisting of lower case Latin letters.  
+**Constraints:** The total length of all 𝑠’s as well as the total length of all 𝑡’s does not exceed 100000.  
+**Output:** For each pair of strings 𝑠 and 𝑡𝑖, find its longest common substring and specify it by outputting three 
+integers: its starting position in 𝑠, its starting position in 𝑡 (both 0-based), and its length. More formally, 
+output integers 0 ≤ 𝑖 < |𝑠|, 0 ≤ 𝑗 < |𝑡|, and 𝑙 ≥ 0 such that 𝑠𝑖𝑠𝑖+1···𝑠𝑖+𝑙−1 = 𝑡𝑗𝑡𝑗+1···𝑡𝑗+𝑙−1 and 𝑙 is maximal.  
+**Code:** [Common Substring](common_substring.py "common_substring.py")
 
 ## Technologies
 * Python 3.8

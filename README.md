@@ -3,26 +3,28 @@ Data structures and algorithm implementations in Python.
 
 
 ## Table of Contents
-* [Objective](#objective)
-* [List ADT](#list-adt)
+- [Objective](#objective)
+- [List ADT](#list-adt)
   - [Binary Search on Sorted List](#binary-search-on-sorted-list)
   - [Quicksort Unsorted List](#quicksort-unsorted-list)
   - [Linked List](#linked-list)
-* [Stack ADT](#stack-adt)
+- [Stack ADT](#stack-adt)
   - [Check Brackets In Text](#check-brackets-in-text)
   - [Stack With Maximum](#stack-with-maximum)
-* [Queue ADT](#queue-adt)
+- [Queue ADT](#queue-adt)
   - [Maximum In Sliding Window](#maximum-in-sliding-window)
   - [Convert Array Into Heap](#convert-array-into-heap)
   - [Parallel Processing](#parallel-processing)
-* [Hashing](#hashing)
+- [Hashing](#hashing)
   - [Phone Book](#phone-book)
   - [Hashing With Chains](#hashing-with-chains)
   - [Find Substring Pattern](#find-substring-pattern)
   - [Substring Equality](#substring-equality)
   - [Longest Common Substring](#longest-common-substring)
-* [Technologies](#technologies)
-* [License](#license)
+- [Trees](#trees)
+  - [Binary Search Trees](#binary-search-trees)
+- [Technologies](#technologies)
+- [License](#license)
 
 
 ## Objective
@@ -190,6 +192,14 @@ of the edit distance problem (where only insertions and deletions are allowed). 
 integers: its starting position in 𝑠, its starting position in 𝑡 (both 0-based), and its length. More formally, 
 output integers 0 ≤ 𝑖 < |𝑠|, 0 ≤ 𝑗 < |𝑡|, and 𝑙 ≥ 0 such that 𝑠𝑖𝑠𝑖+1···𝑠𝑖+𝑙−1 = 𝑡𝑗𝑡𝑗+1···𝑡𝑗+𝑙−1 and 𝑙 is maximal.  
 **Code:** [Common Substring](common_substring.py "common_substring.py")
+
+
+## Trees
+
+### Binary Search Trees
+**Code:** [Is BST](is_bst.py "is_bst.py")  
+**Code:** [Is BST Hard](is_bst_hard.py "is_bst_hard.py")  
+
 
 ## Technologies
 * Python 3.8

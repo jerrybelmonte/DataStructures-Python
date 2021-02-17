@@ -12,20 +12,7 @@ def is_binary_search_tree(tree):
         return True
 
     # if the tree is not empty
-    arr = []  # array to hold copy of bst
-    copy_bst(tree, 0, arr)  # copy the bst
     return check_bst_left(tree, 0, -sys.maxsize, sys.maxsize)
-
-
-def copy_bst(tree, ndx, arr):
-    if tree[ndx][1] != -1:  # if left child exists
-        copy_bst(tree, tree[ndx][1], arr)
-
-    # copy the value of the current node
-    arr.append(tree[ndx][0])
-
-    if tree[ndx][2] != -1:  # if right child exists
-        copy_bst(tree, tree[ndx][2], arr)
 
 
 def check_bst_left(tree, ndx, min_val, max_val):

@@ -67,7 +67,8 @@ def solve(s, t):
 	return binary_search(s, t, prime1, rand1, prime2, rand2)
 
 
-for line in sys.stdin.readlines():
-	a, b = line.split()
-	ans = solve(a, b)
-	print(ans.i, ans.j, ans.len)
+if __name__ == '__main__':
+	for line in sys.stdin.readlines():
+		a, b = line.split()
+		ans = solve(a, b)
+		print(ans.i, ans.j, ans.len)

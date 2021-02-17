@@ -197,6 +197,7 @@ output integers 0 ≤ 𝑖 < |𝑠|, 0 ≤ 𝑗 < |𝑡|, and 𝑙 ≥ 0 such th
 ## Trees
 
 ### Binary Search Trees
+**Code:** [Binary Tree Traversals](tree-orders.py "tree-orders.py")  
 **Code:** [Is BST](is_bst.py "is_bst.py")  
 **Code:** [Is BST Hard](is_bst_hard.py "is_bst_hard.py")  
 
